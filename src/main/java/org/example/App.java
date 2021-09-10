@@ -1,4 +1,6 @@
 package org.example;
+
+import java.util.Calendar;
 import java.util.Scanner;
 
 /*
@@ -10,22 +12,25 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "What is the first number? " );
+        System.out.println( "What is your current age? " );
 
         Scanner scanner = new Scanner(System.in);
-        String first, second;
-        int firstNumber, secondNumber;
+        int age, retiringAge, yearsLeft, currentYear, retiringYear;
 
-        first = scanner.nextLine();
-        firstNumber = Integer.parseInt(first);
+        age = scanner.nextInt();
 
-        System.out.println( "What is the second number? " );
-        second = scanner.nextLine();
-        secondNumber = Integer.parseInt(second);
+        System.out.println( "At what age would you like to retire? " );
+        retiringAge = scanner.nextInt();
 
-        System.out.println( firstNumber + " + " + secondNumber + " = " + (firstNumber+secondNumber));
-        System.out.println( firstNumber + " - " + secondNumber + " = " + (firstNumber-secondNumber));
-        System.out.println( firstNumber + " * " + secondNumber + " = " + (firstNumber*secondNumber));
-        System.out.println( firstNumber + " / " + secondNumber + " = " + (firstNumber/secondNumber));
+        yearsLeft = retiringAge - age;
+        currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        retiringYear = currentYear + yearsLeft;
+
+        System.out.println
+        (
+            "You have " + yearsLeft + " years left until you can retire.\n"
+            + "It's " + currentYear + ", so you can retire in " + retiringYear
+        );
+
     }
 }
